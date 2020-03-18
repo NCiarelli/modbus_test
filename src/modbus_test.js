@@ -23,12 +23,12 @@ socket.on('connect', function () {
      
         // resp will look like { response : [TCP|RTU]Response, request: [TCP|RTU]Request }
         // the data will be located in resp.response.body.coils: <Array>, resp.response.body.payload: <Buffer>
-        console.log(`The following are the PLC output coils: \n${resp}`);
+        console.log(`The following are the PLC output coils: \n${resp.body.coils}`);
      
     }, console.error);
 
     client.readHoldingRegisters(0, 10).then(function (resp) {
-        console.log(`The following are the PLC holding registers: \n${resp}`);
+        console.log(`The following are the PLC holding registers: \n${resp.body.payload}`);
     }, console.error);
      
 });
