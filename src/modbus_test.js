@@ -27,7 +27,7 @@ socket.on('connect', function () {
       console.error(arguments)
       socket.end()
     })
-    client.readHoldingRegisters(0, 10)
+    client.readHoldingRegisters(1024, 10)
     .then(function (resp) {
       console.log(resp.response._body.valuesAsArray)
       socket.end()
